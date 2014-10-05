@@ -18,7 +18,7 @@ Help & Forks welcomed!
 How to install
 --------------
 
-    $ npm install crawler
+    $ npm install git://github.com/z-hao-wang/node-crawler.git
 
 ###Contextify
 
@@ -90,6 +90,17 @@ c.queue([{
 c.queue([{
 "html":"<p>This is a <strong>test</strong></p>"
 }]);
+
+//passing in additional data into queue
+c.queue({
+    uri: url,
+    data: {album_id: album_id},
+    "callback": function (err, result) {
+        var album_id = this.data.album_id;
+        //album_id is available
+    }
+});
+
 ```
 
 Options reference
@@ -175,6 +186,9 @@ Rough todolist
 
 ChangeLog
 ---------
+
+hao's branch: 
+  - Allow passing in custom data field
 
 0.2.6
  - Spring Cleaning !!
